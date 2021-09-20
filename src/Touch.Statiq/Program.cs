@@ -2,6 +2,7 @@
 using Statiq.Common;
 using Statiq.Core;
 using Statiq.Web;
+using System.Threading.Tasks;
 
 await Bootstrapper
     .Factory

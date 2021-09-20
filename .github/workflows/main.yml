@@ -19,6 +19,11 @@ jobs:
         with:
           dotnet-version: '6.0.x'
           include-prerelease: true
+      - name: Install Libman
+        run: dotnet tool install -g Microsoft.Web.LibraryManager.CLI
+      - name: LibMan restore
+        run: libman restore
+        working-directory: src/Touch.Statiq
       - name: NuGet restore
         run: dotnet restore
         working-directory: src/Touch.Statiq
