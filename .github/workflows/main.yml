@@ -28,7 +28,7 @@ jobs:
         run: dotnet restore
         working-directory: src/Touch.Statiq
       - name: Build and run Statiq
-        run: dotnet run --configuration Release --no-restore
+        run: dotnet run --configuration Release --no-restore -- -l Trace
         working-directory: src/Touch.Statiq
       - name: Publish
         uses: peaceiris/actions-gh-pages@v3
