@@ -35,5 +35,5 @@ jobs:
         if: ${{ github.ref == 'refs/heads/main' }}
         with:
           external_repository: TTC-Touch/ttc-touch.github.io
-          deploy_key: ${{ secrets.STATIQ_CI }}
+          personal_token: ${{ secrets.STATIQ_CI_APIKEY }}
           publish_dir: ./src/Touch.Statiq/output
