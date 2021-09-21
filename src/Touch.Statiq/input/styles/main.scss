@@ -49,3 +49,30 @@ $border-radius-lg: 1.5rem;
 .obfuscated-email:before {
     content: attr(obfuscate-domain) "\0040" attr(obfuscate-user);
 }
+
+.btn-outline-dark {
+    color: #222;
+}
+
+@media (prefers-color-scheme: dark) {
+    body {
+        background-color: #111;
+        color: #bbb;
+    }
+
+    .bg-light {
+        --bs-bg-opacity: 0.1;
+    }
+
+    .nav-pills .nav-link.active {
+        color: #ddd;
+    }
+
+    .nav-pills .nav-link:hover {
+        background-color: #333;
+    }
+
+    .btn-outline-dark {
+        color: #bbb;
+    }
+}
