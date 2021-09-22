@@ -14,10 +14,10 @@ jobs:
     steps:
       - name: Check it out
         uses: actions/checkout@v2
-      - name: Setup .NET 6 Preview
+      - name: Setup .NET 5.0
         uses: actions/setup-dotnet@v1.8.2
         with:
-          dotnet-version: '6.0.x'
+          dotnet-version: '5.0.x'
           include-prerelease: true
       - name: Install Libman
         run: dotnet tool install -g Microsoft.Web.LibraryManager.CLI
@@ -28,7 +28,7 @@ jobs:
         run: dotnet restore
         working-directory: src/Touch.Statiq
       - name: Build and run Statiq
-        run: dotnet run --configuration Release --no-restore -- -l Trace
+        run: dotnet run --configuration Release --no-restore
         working-directory: src/Touch.Statiq
       - name: Publish
         uses: peaceiris/actions-gh-pages@v3
