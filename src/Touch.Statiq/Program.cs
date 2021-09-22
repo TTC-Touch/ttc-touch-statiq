@@ -19,3 +19,4 @@ await Bootstrapper
 
 public record Ploeg(char Letter, int Afdeling, int AfdelingId, int TeamId);
 public record Contact(string Naam, string Telefoon, string EmailGebruiker, string EmailDomein);
+public record MenuItem(string Page, string AwesomeIcon, string Label);
