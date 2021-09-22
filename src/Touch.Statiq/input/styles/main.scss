@@ -75,4 +75,8 @@ $border-radius-lg: 1.5rem;
     .btn-outline-dark {
         color: #bbb;
     }
+
+    .kavvv-logo {
+        filter: invert(100%) hue-rotate(180deg);
+    }
 }

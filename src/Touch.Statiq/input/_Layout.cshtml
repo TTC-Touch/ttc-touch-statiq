@@ -1,26 +1,12 @@
 ﻿<!doctype html>
 @{
-    IHtmlContent Helper(System.Func<object?, IHtmlContent> body) => body(null);
-    IHtmlContent MenuItem(string page, string icon, string label)
-    {
-        var linkClass = "nav-link";
-        var href = page + ".html";
-        if (page == "index")
-        {
-            href = "./";
-        }
-        if (ViewContext.View.Path.EndsWith(page + ".cshtml", StringComparison.OrdinalIgnoreCase))
-        {
-            linkClass = "nav-link active";
-        }
-        return Helper(
-            @<li class="nav-item">
-                <a class="@linkClass" href="@href">
-                    <span class="fas fa-@icon"></span>
-                    @label
-                </a>
-            </li>);
-    }
+    ViewBag.menu = new MenuItem[] {
+        new MenuItem("index", "home", "TTC Touch"),
+        new MenuItem("geschiedenis", "book", "Clubgeschiedenis"),
+        new MenuItem("lokaal", "map-marker-alt", "Lokaal"),
+        new MenuItem("contact", "envelope", "Contact"),
+        new MenuItem("kavvv", "table-tennis", "KAVVV")
+    };
 }
 <html class="no-js" lang="nl-be">
 <head>
@@ -39,11 +25,25 @@
     <div class="container">
         <div class="header mt-2 mb-3">
             <ul class="nav nav-pills nav-fill">
-                @MenuItem("index", "home", "TTC Touch")
-                @MenuItem("geschiedenis", "book", "Clubgeschiedenis")
-                @MenuItem("lokaal", "map-marker-alt", "Lokaal")
-                @MenuItem("contact", "envelope", "Contact")
-                @MenuItem("kavvv", "table-tennis", "KAVVV")
+                @foreach (MenuItem menuItem in ViewBag.menu)
+                {
+                    var linkClass = "nav-link";
+                    var href = menuItem.Page + ".html";
+                    if (menuItem.Page == "index")
+                    {
+                        href = "./";
+                    }
+                    if (ViewContext.View.Path.EndsWith(menuItem.Page + ".cshtml", StringComparison.OrdinalIgnoreCase))
+                    {
+                        linkClass = "nav-link active";
+                    }
+        
+                    <li class="nav-item">
+                        <a class="@linkClass" href="@href">
+                            <span class="fas fa-@menuItem.AwesomeIcon"></span> @menuItem.Label
+                        </a>
+                    </li>
+                }
             </ul>
         </div>
 
