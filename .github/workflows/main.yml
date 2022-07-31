@@ -37,3 +37,4 @@ jobs:
           external_repository: TTC-Touch/ttc-touch.github.io
           personal_token: ${{ secrets.STATIQ_CI_APIKEY }}
           publish_dir: ./src/Touch.Statiq/output
+          publish_branch: main
